@@ -52,7 +52,7 @@ For DOCX input, first run:
 python scripts/extract_reference_docx.py <letter.docx> --pretty
 ```
 
-The script extracts visible text, headers and footers, comments, tracked-change counts, core placeholders, and possible identity inconsistencies. If Python is unavailable, read the document natively and disclose that comments, revisions, or table order may be incomplete.
+The script extracts visible text, headers and footers, comments, tracked-change counts, and core placeholders; use the extracted text to check identity consistency. If Python is unavailable, read the document natively and disclose that comments, revisions, or table order may be incomplete.
 
 For PDF input, extract all pages. Inspect rendered pages only when the user asks about formatting, letterhead, signature placement, or submission readiness. Do not infer visual quality from extracted text alone.
 
