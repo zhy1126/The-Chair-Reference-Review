@@ -16,9 +16,13 @@ W = "{http://schemas.openxmlformats.org/wordprocessingml/2006/main}"
 PLACEHOLDER_PATTERNS = [
     re.compile(r"\[[^\]\n]{1,100}\]"),
     re.compile(r"\{[^\}\n]{1,100}\}"),
+    re.compile(r"【[^】\n]{1,100}】"),
+    re.compile(r"［[^］\n]{1,100}］"),
     re.compile(r"\b(?:candidate(?:'s)? name|student name|applicant name|program(?:me)? name|"
                r"university name|institution name|referee(?:'s)? name|prof\.?\s*xx)\b", re.I),
     re.compile(r"\b(?:xxx+|tbd|todo|insert here)\b", re.I),
+    re.compile(r"(?:申请人姓名|学生姓名|推荐人姓名|学校名称|项目名称|申请项目|姓名待填|某某同学)"),
+    re.compile(r"(?<![A-Za-z])X{2,}(?![A-Za-z])", re.I),
 ]
 
 
@@ -54,13 +58,23 @@ def _all_paragraphs(root: ET.Element | None) -> list[str]:
 
 
 def _find_placeholders(text: str) -> list[str]:
-    found: list[str] = []
+    matches: list[tuple[int, int, str]] = []
     for pattern in PLACEHOLDER_PATTERNS:
         for match in pattern.finditer(text):
             value = match.group(0).strip()
-            if value and value not in found:
-                found.append(value)
-    return found
+            if value:
+                matches.append((match.start(), match.end(), value))
+
+    # Prefer the widest match at a position so bracketed placeholders are not
+    # counted again by a narrower phrase pattern inside the same span.
+    matches.sort(key=lambda item: (item[0], -(item[1] - item[0])))
+    selected: list[tuple[int, int, str]] = []
+    for start, end, value in matches:
+        if any(outer_start <= start and end <= outer_end for outer_start, outer_end, _ in selected):
+            continue
+        if value not in {existing for _, _, existing in selected}:
+            selected.append((start, end, value))
+    return [value for _, _, value in selected]
 
 
 def extract_docx(path: Path) -> dict:
@@ -97,7 +111,13 @@ def extract_docx(path: Path) -> dict:
 
         return {
             "path": str(path),
-            "word_count": len(re.findall(r"\b[\w'-]+\b", text, flags=re.UNICODE)),
+            "latin_word_count": len(
+                re.findall(r"[A-Za-z0-9]+(?:['-][A-Za-z0-9]+)*", text)
+            ),
+            "cjk_character_count": len(
+                re.findall(r"[\u3400-\u4dbf\u4e00-\u9fff\uf900-\ufaff]", text)
+            ),
+            "character_count_excluding_whitespace": len(re.sub(r"\s", "", text)),
             "paragraph_count": len(paragraphs),
             "insertions": sum(1 for _ in document.iter(W + "ins")),
             "deletions": sum(1 for _ in document.iter(W + "del")),
