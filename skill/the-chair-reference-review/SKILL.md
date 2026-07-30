@@ -13,9 +13,18 @@ Use three core lenses:
 
 1. **Recommendation basis**: Is the recommender formally acceptable, sufficiently independent, and positioned to observe the applicant?
 2. **Evidence credibility**: Do first-hand observations, records, patterns, comparisons, or examples support an applicant-specific judgement?
-3. **Application contribution**: Does the testimony support relevant readiness and add useful evidence beside the CV, PS, and other references?
+3. **Application contribution**: What applicant-relevant function does this letter credibly perform, is that function material to the target programme or field, and—when the other materials are available—does it complement the CV, PS, and other references?
 
 Treat the official prompt, referee form, eligibility rules, submission instructions, and credible local genre conventions as controlling. Use the three lenses as defaults, not as an exhaustive universal model. For a reusable letter, judge field- or programme-family relevance rather than demanding school-specific praise.
+
+## Separate single-letter function from portfolio coverage
+
+Evaluate sufficiency at two levels:
+
+- **Single-letter function**: Which one or two applicant-relevant facets can this recommender credibly prove from their own vantage point, and does the letter prove those facets well?
+- **Portfolio coverage**: When multiple references and the wider application are available, do they collectively cover useful dimensions without unproductive repetition?
+
+Do not require one letter to demonstrate every programme competency. Silence about theory, methods, practice, character, teamwork, or another dimension is neutral unless the official prompt requires each referee to address it, the letter claims to perform that function, or the omission prevents its chosen function from being credible. If the wider portfolio is missing, mark only portfolio coverage `not assessable`; still judge programme relevance and the single-letter function.
 
 ## Maintain the review boundary
 
@@ -27,6 +36,7 @@ Treat the official prompt, referee form, eligibility rules, submission instructi
   3. the recommender alone can confirm that the interpretation and endorsement are theirs.
 - Do not turn applicant-supplied facts into first-person recommender testimony without recommender verification and assent.
 - Do not infer that prestige creates either formal eligibility or a strong observation basis.
+- Do not downgrade a focused letter merely because it leaves an out-of-scope ability to another referee.
 - Do not silently produce a complete replacement letter or imitate a named person's voice.
 - After calibration, revise selected passages only when requested and only from confirmed evidence. Use placeholders for facts still awaiting recommender confirmation.
 - Use qualitative classifications, not a default total score.
@@ -56,7 +66,7 @@ For PDF input, extract all pages. Render pages when layout, letterhead, signatur
 
 ### Focused Stage 1 — default
 
-Report judgement only: review basis, one-sentence verdict, likely reader takeaway, and the three core lenses. Under the third lens, classify **programme relevance** and **portfolio contribution** separately so one may remain assessable when the other is not. End with a factual calibration request. Do not provide revision verbs, sample replacements, or content to insert.
+Report judgement only: review basis, one-sentence verdict, likely reader takeaway, and the three core lenses. Under the third lens, classify **programme or field relevance**, **single-letter function**, and **portfolio coverage** separately. State whether the intended function is user-specified, officially required, or a tentative inference from the evidence. End with a factual calibration request. Do not provide revision verbs, sample replacements, or content to insert.
 
 ### Focused Stage 2
 
@@ -74,11 +84,11 @@ Full Audit remains diagnostic by default and pauses before sample rewrites. If t
 
 ## Run the diagnostic workflow
 
-1. **Classify the job.** Identify application level, programme or field, official prompt, referee type, required eligibility, relationship setting, likely reader, submission form, length limit, and the intended role beside other materials.
+1. **Classify the job.** Identify application level, programme or field, official prompt, referee type, required eligibility, relationship setting, likely reader, submission form, length limit, and the intended role of this letter beside other materials. If that role is not supplied, infer no more than one tentative function from the strongest observed evidence and ask the user to calibrate it.
 2. **Perform the trust scan.** Read the opening or form context, topic sentences, evidence-bearing passages, comparative claims, reservations, and closing strength. Record what the recommender can credibly know and what image remains after deleting praise adjectives.
 3. **Test recommendation basis.** Judge formal eligibility and independence separately from relationship depth and observation access. Mark either component `not assessable` when its governing rules or facts are missing.
 4. **Test evidence credibility.** Accept multiple evidence forms: a specific episode, longitudinal pattern, assessed work, documented record, legitimate comparison, repeated interaction, or evaluative synthesis grounded in observation. Do not force every good letter into a story.
-5. **Test application contribution.** Assess programme or field relevance independently from portfolio contribution. Repetition is useful only when it adds independent verification, a new vantage point, or a meaningful comparison.
+5. **Test application contribution.** First judge whether the letter credibly performs its intended single-letter function. Then assess whether that evidenced facet is materially relevant to the programme or field. Assess portfolio coverage only when the CV, PS, other references, or an explicit division of labour is available. Do not treat absence of an out-of-scope competency as a fit gap. Repetition is useful only when it adds independent verification, a new vantage point, or a meaningful comparison.
 6. **Audit authenticity and tone.** Calibrate precision, hedging, restraint, enthusiasm, reservations, omissions, and recommendation strength to the recommender's role, evidence, official prompt, and credible genre context. Do not interpret culturally restrained language as faint praise without adequate context.
 7. **Audit submission risk.** Check names, pronouns, institution and programme, placeholders, conflicts, letterhead, signature, contact details, and official submission rules when supplied.
 8. **Form classifications.** Use only `convincing`, `convincing with local gaps`, `developing`, `structural risk`, or `not assessable`. Apply local, recurring, and structural severity consistently.
